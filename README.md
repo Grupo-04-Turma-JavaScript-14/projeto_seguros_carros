@@ -43,6 +43,3 @@ DELETE /seguro/{id}
 - Product Owner: Mariana Soares  
 - Scrum Master: Mirelly Santos  
 - Desenvolvedores: Marlos, Samara, Henrique, José Javier  
-
-## 📌 Status
-🚧 Em desenvolvimento
