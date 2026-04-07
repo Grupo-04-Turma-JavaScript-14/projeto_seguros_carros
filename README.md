@@ -42,4 +42,9 @@ DELETE /seguro/{id}
 ## 👥 Equipe
 - Product Owner: Mariana Soares  
 - Scrum Master: Mirelly Santos  
-- Desenvolvedores: Marlos, Samara, Henrique, José Javier  
+- Desenvolvedores: Marlos, Samara, Henrique, José Javier
+
+
+  ## DER — Diagrama Entidade-Relacionamento (Sistema de Seguros)
+  
+<img width="1536" height="1024" alt="Diagrama de sistema de seguros de veículos" src="https://github.com/user-attachments/assets/a053a4cf-b245-4953-81e4-5da3b7f02e72" />
