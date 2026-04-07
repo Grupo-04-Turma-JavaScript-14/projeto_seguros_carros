@@ -1,6 +1,10 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 import { Seguro } from '../entities/seguro.entity';
 
 @Injectable()
@@ -36,5 +40,35 @@ export class SeguroService {
     }
 
     return seguro;
+  }
+
+  async create(seguro: Seguro): Promise<Seguro> {
+    const placaExistente = await this.seguroRepository.findOneBy({
+      placa: seguro.placa,
+    });
+    if (placaExistente) {
+      throw new BadRequestException(
+        'Já existe um seguro cadastrado para esta placa',
+      );
+    }
+    return this.seguroRepository.save(seguro);
+  }
+
+  async update(seguro: Seguro): Promise<Seguro> {
+    const seguroExiste = await this.findById(seguro.id);
+    const placaExiste = await this.seguroRepository.findOneBy({
+      placa: seguro.placa,
+    });
+    if (placaExiste && placaExiste.id !== seguro.id) {
+      throw new BadRequestException('Já existe um seguro com essa placa');
+    }
+    const seguroAtualizado = this.seguroRepository.merge(seguroExiste, seguro);
+
+    return this.seguroRepository.save(seguroAtualizado);
+  }
+
+  async delete(id: number): Promise<DeleteResult> {
+    await this.findById(id);
+    return await this.seguroRepository.delete(id);
   }
 }
