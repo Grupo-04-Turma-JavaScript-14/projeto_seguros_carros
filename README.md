@@ -29,12 +29,27 @@ API REST desenvolvida para gerenciar seguros de veículos, permitindo cadastro, 
 
 ## 🌐 Endpoints
 
-GET /seguro  
-GET /seguro/{id}  
-GET /seguro/placa/{placa}  
-POST /seguro  
-PUT /seguro  
-DELETE /seguro/{id}  
+🚀 Endpoints da API
+Cliente
+POST   /clientes
+GET    /clientes
+GET    /clientes/:id
+PUT    /clientes/:id
+DELETE /clientes/:id
+
+Destino
+POST   /destinos
+GET    /destinos
+GET    /destinos/:id
+PUT    /destinos/:id
+DELETE /destinos/:id
+
+Seguro
+POST   /seguros
+GET    /seguros
+GET    /seguros/:id
+PUT    /seguros/:id
+DELETE /seguros/:id
 
 ## 🛠️ Tecnologias
 - Node.js
@@ -47,6 +62,7 @@ DELETE /seguro/{id}
 - Product Owner: Mariana Soares  
 - Scrum Master: Mirelly Santos  
 - Desenvolvedores: Marlos, Samara, Henrique, José Javier
+
 
 
  
